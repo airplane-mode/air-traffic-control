@@ -17,6 +17,11 @@ Dead simple redux routing, the way it should work.
 
 Air Traffic Control maps route changes in your app to action creators in redux.
 
+## Philosophy
+
+Route changes are actions, just like mouse clicks. They should be handled in a consistent way,
+and they should certainly be kept out of your views.
+
 ## Installation
 
 ```bash
