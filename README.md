@@ -4,7 +4,7 @@ Dead simple redux routing, the way it should work.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-## Table of Contents
+### Table of Contents
 
 - [Air Traffic Control](#air-traffic-control)
   - [How it works](#how-it-works)
