@@ -33,7 +33,7 @@ const router = new Router(store, { interceptLinks: true }); // TODO: interceptLi
 router.route('/home', () => ACTION_CREATORS.goHome());
 
 // route params are provided as arguments to your handler, they go in {these}
-router.route('/search/{query}', (query) => ACTION_CREATORS.search(query)');
+router.route('/search/{query}', (query) => ACTION_CREATORS.search(query));
 
 // if you want more control, you can use regexes in your routes
 // matched groups are passed to your handler in order
