@@ -21,7 +21,7 @@ const Router = require('air-traffic-control');
 const ACTION_CREATORS = require('./actions').ACTION_CREATORS;
 
 // import your redux store
-const store require('./store');
+const store = require('./store');
 
 // initialize the router
 // if you want local links to be automatically fed into the router,
