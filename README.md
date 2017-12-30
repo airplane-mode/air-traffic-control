@@ -1,3 +1,7 @@
+# Air Traffic Control
+
+Dead simple redux routing, the way it should work.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -9,10 +13,6 @@
   - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Air Traffic Control
-
-Dead simple redux routing, the way it should work.
 
 ## How it works
 
