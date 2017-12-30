@@ -8,13 +8,13 @@ Air Traffic Control maps route changes in your app to action creators in redux.
 
 ## Installation
 
-```
+```bash
 $ npm install --save air-traffic-control
 ```
 
 ## Usage
 
-```
+```javascript
 const Router = require('air-traffic-control');
 
 // import your action creators
