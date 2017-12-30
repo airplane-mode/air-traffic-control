@@ -37,7 +37,7 @@ const store = require('./store');
 // initialize the router
 // if you want local links to be automatically fed into the router,
 // pass the interceptLinks: true option.
-// This means you can right local links with <a href="/foo"> and they'll just work.
+// This means you can write local links with <a href="/foo"> and they'll just work.
 const router = new Router(store, { interceptLinks: true }); // TODO: interceptLinks true as default?
 
 // register any routes you want
