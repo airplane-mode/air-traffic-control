@@ -13,7 +13,6 @@
   "author": "Airplane Mode Team",
   "license": "MIT",
   "dependencies": {
-    "crossroads": "^0.12.2",
-    "jquery": "^3.2.1"
+    "crossroads": "^0.12.2"
   }
 }

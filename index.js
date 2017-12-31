@@ -1,10 +1,24 @@
-import $ from 'jquery';
-
 const crossroads = require('crossroads');
 
 const DEFAULT_CONFIG = {
   interceptLinks: false, // by default don't interfere with clicks on links on the page
 };
+
+// shim for Element.closest()
+if (!Element.prototype.matches) {
+  Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+}
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function(s) {
+    var el = this;
+    if (!document.documentElement.contains(el)) return null;
+    do {
+      if (el.matches(s)) return el;
+      el = el.parentElement || el.parentNode;
+    } while (el !== null);
+    return null;
+  };
+}
 
 export default class {
   // create a new router, given a reference to the redux store for action dispatch
@@ -108,7 +122,7 @@ export default class {
     if (router.config.interceptLinks) {
       document.body.addEventListener('click', (evt) => {
         // only process clicks on elements with hrefs set for the current host
-        const $parentLink = $(evt.target).closest('a');
+        const $parentLink = evt.target.closest('a');
         const parseLink = document.createElement('a');
         let href;
         if (!evt.target.href && $parentLink && $parentLink.length > 0) {
