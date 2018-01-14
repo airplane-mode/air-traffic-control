@@ -1,5 +1,7 @@
 # Air Traffic Control
 
+[![Build Status](https://travis-ci.org/airplane-mode/air-traffic-control.svg?branch=master)](https://travis-ci.org/airplane-mode/air-traffic-control)
+
 Dead simple redux routing, the way it should work.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
