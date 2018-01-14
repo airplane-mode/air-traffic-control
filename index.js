@@ -153,7 +153,7 @@ export default class {
         if (currentHost && !hashChange) {
           // Tries to match the route,
           // and prevents link click default behavior (navigate away) in the case of a match.
-          router.match(evt.target.pathname, () => {
+          router.navigate(evt.target.pathname, () => {
             evt.preventDefault();
             window.history.pushState({}, '' /* TODO: consistent title for history */, evt.target.pathname);
           });
@@ -164,6 +164,6 @@ export default class {
     crossroads.ignoreState = true;
 
     // actually parse our current route
-    router.match(document.location.pathname);
+    router.navigate(document.location.pathname);
   }
 }
