@@ -2,9 +2,17 @@
   "name": "air-traffic-control",
   "version": "0.1.0",
   "description": "Dead simple redux routing, the way it should work.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "compile": "mkdir -p build && babel --presets es2015,stage-0 -d build/ src/ && mv build/index.js build/air-traffic-control.js",
+    "minify": "uglifyjs build/air-traffic-control.js -c -o build/air-traffic-control.min.js",
+    "build": "npm run compile && npm run minify",
+    "rebuild": "npm run clean && npm run build",
+    "compress": "tar -cvzf build/air-traffic-control.min.js.tar.gz build/air-traffic-control.min.js",
+    "prepublish": "npm run build",
+    "clean": "rm -rf build",
+    "release": "npm run rebuild && npm run compress"
   },
   "keywords": [
     "redux",
@@ -13,6 +21,18 @@
   "author": "Airplane Mode Team",
   "license": "MIT",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "crossroads": "^0.12.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest-cli": "^22.0.6",
+    "uglify-js": "^3.3.7"
   }
 }
