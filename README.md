@@ -1,6 +1,6 @@
 # Air Traffic Control
 
-Dead simple redux routing, the way it should work.
+Dead simple redux routing, the way it should work. Originally created by [@airshanemode](https://www.github.com/airshanemode) and [@jfyles](https://www.github.com/jfyles) with help from the [Crossroads](https://github.com/millermedeiros/crossroads.js) routing library for use in [Airplane Mode](http://flyairplanemode.com).
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
