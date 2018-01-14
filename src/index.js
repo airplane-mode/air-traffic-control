@@ -5,22 +5,24 @@ const DEFAULT_CONFIG = {
 };
 
 // Shim for Element.closest()
-if (!Element.prototype.matches) {
-  Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-}
-if (!Element.prototype.closest) {
-  Element.prototype.closest = function(s) {
-    var el = this;
-    if (!document.documentElement.contains(el)) return null;
-    do {
-      if (el.matches(s)) return el;
-      el = el.parentElement || el.parentNode;
-    } while (el !== null);
-    return null;
-  };
+if(typeof(Element) !== "undefined") {
+  if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  }
+  if (!Element.prototype.closest) {
+    Element.prototype.closest = function(s) {
+      var el = this;
+      if (!document.documentElement.contains(el)) return null;
+      do {
+        if (el.matches(s)) return el;
+        el = el.parentElement || el.parentNode;
+      } while (el !== null);
+      return null;
+    };
+  }
 }
 
-export default class {
+module.exports = class {
   /**
    * Creates a new router, given a reference to the redux store for action dispatch
    *
