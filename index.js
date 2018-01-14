@@ -21,7 +21,13 @@ if (!Element.prototype.closest) {
 }
 
 export default class {
-  // Create a new router, given a reference to the redux store for action dispatch
+  /**
+   * Creates a new router, given a reference to the redux store for action dispatch
+   *
+   * @constructor
+   * @param {object} store - Your redux store.
+   * @param {object} config - Additional configuration parameters. Currently only supports the interceptLinks property.
+   */
   constructor(store, config = {}) {
     // Keep bound reference to dispatch so we can dispatch actions in route handlers
     this.dispatch = store.dispatch.bind(store);
@@ -33,14 +39,12 @@ export default class {
     this.config = { ...DEFAULT_CONFIG, ...config };
   }
 
-  // Registers a new route.
-  //
-  // Takes a path and a handler.
-  //
-  // Path can be of the form /foo/{bar}/{baz} to match the bar param and baz param.
-  //
-  // Handler takes the params matched in the URL ((bar, baz) => { } for the example above), and must return a Redux action.
-  //
+  /**
+   * Registers a new route.
+   *
+   * @param {string} pathOrPaths - (Optionally an array of strings) The path of paths that will trigger the handler. A path can be of the form /foo/{bar}/{baz} to match the bar param and baz param.
+   * @param {string} handler - A handler that takes the params matched in the URL ((bar, baz) => { } for the example above), and returns a Redux action.
+   */
   route(pathOrPaths, handler) {
     const router = this;
 
@@ -63,10 +67,12 @@ export default class {
     }
   }
 
-  // Searches for a matching path, and if it finds one, runs the associated handlers.
-  //
-  // Optional: additional handler to run after the standard handler does its thing.
-  //
+  /**
+   * Searches for a matching path, and if it finds one, runs the associated handlers.
+   *
+   * @param {string} path - The path to which to navigate.
+   * @param {object} handler - (Optional) An additional handler to run after the standard handler does its thing.
+   */
   navigate(path, handler = () => {}) {
     console.log(`Checking for route matches for ${path}`);
 
@@ -76,11 +82,14 @@ export default class {
     this.onMatch = oldOnMatch;
   }
 
-  // Makes a purely aesthetic update to the location - this won't affect navigation / history.
-  //
-  // Optionally updates the title as well.
-  //
-  // ** Disabled eslint rule that tries to force this to be static because the router should be singleton.
+  /**
+   * Updates the path and, optionally, the title of the page without firing any handlers. This will be a purely aesthetic update to the location, and won't affect navigation / history.
+   *
+   * @param {string} path - The new path.
+   * @param {string} title - (Optional) The new title.
+   *
+   *** Disabled eslint rule that tries to force this to be static because the router should be singleton.
+   */
   prettify(path, title) { // eslint-disable-line class-methods-use-this
     console.log(`Aesthetic path update: ${path}`);
     window.history.replaceState(
@@ -96,8 +105,9 @@ export default class {
     }
   }
 
-  // Starts listening for and handling route changes
-  //
+  /**
+   * Starts the router and begins listening for actions and navigation changes.
+   */
   start() {
     const router = this;
 
