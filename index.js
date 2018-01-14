@@ -1,10 +1,10 @@
 const crossroads = require('crossroads');
 
 const DEFAULT_CONFIG = {
-  interceptLinks: false, // by default don't interfere with clicks on links on the page
+  interceptLinks: false, // By default, don't interfere with clicks on links on the page
 };
 
-// shim for Element.closest()
+// Shim for Element.closest()
 if (!Element.prototype.matches) {
   Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 }
@@ -21,25 +21,25 @@ if (!Element.prototype.closest) {
 }
 
 export default class {
-  // create a new router, given a reference to the redux store for action dispatch
+  // Create a new router, given a reference to the redux store for action dispatch
   constructor(store, config = {}) {
-    // keep bound reference to dispatch so we can dispatch actions in route handlers
+    // Keep bound reference to dispatch so we can dispatch actions in route handlers
     this.dispatch = store.dispatch.bind(store);
 
-    // handler to run additional post-match logic, useful internally in some cases
+    // Handler to run additional post-match logic, useful internally in some cases
     this.onMatch = () => { };
 
-    // keep our config options around
+    // Keep our config options around
     this.config = { ...DEFAULT_CONFIG, ...config };
   }
 
-  // register a new route
+  // Registers a new route.
   //
-  // takes a path and a handler
+  // Takes a path and a handler.
   //
-  // path can be of the form /foo/{bar}/{baz} to match the bar param and baz param
+  // Path can be of the form /foo/{bar}/{baz} to match the bar param and baz param.
   //
-  // handler is of the form (bar, baz) => { } and must return return an action
+  // Handler takes the params matched in the URL ((bar, baz) => { } for the example above), and must return a Redux action.
   //
   route(pathOrPaths, handler) {
     const router = this;
@@ -63,11 +63,11 @@ export default class {
     }
   }
 
-  // match a path and run associated handlers
+  // Searches for a matching path, and if it finds one, runs the associated handlers.
   //
-  // optional: handler to run in the case of a match after the standard handler runs
+  // Optional: additional handler to run after the standard handler does its thing.
   //
-  match(path, handler = () => {}) {
+  navigate(path, handler = () => {}) {
     console.log(`Checking for route matches for ${path}`);
 
     const oldOnMatch = this.onMatch;
@@ -76,11 +76,11 @@ export default class {
     this.onMatch = oldOnMatch;
   }
 
-  // make a purely aesthetic update to the location - this won't effect navigation / history
+  // Makes a purely aesthetic update to the location - this won't affect navigation / history.
   //
-  // optionally update the title as well
-
-  // disabled eslint rule that tries to force this to static because the router should be singleton
+  // Optionally updates the title as well.
+  //
+  // ** Disabled eslint rule that tries to force this to be static because the router should be singleton.
   prettify(path, title) { // eslint-disable-line class-methods-use-this
     console.log(`Aesthetic path update: ${path}`);
     window.history.replaceState(
@@ -96,18 +96,12 @@ export default class {
     }
   }
 
-  // navigate to a new path, running any associated handlers
-  navigate(path) {
-    console.log(`Navigating to ${path}`);
-    this.match(path);
-  }
-
-  // start listening for and handling route changes
+  // Starts listening for and handling route changes
   //
   start() {
     const router = this;
 
-    // listen for history state change
+    // Listen for history state change
     window.onpopstate = (evt) => {
       let targetPath;
       if (evt.state && evt.state.pretty) {
@@ -118,10 +112,10 @@ export default class {
       crossroads.parse(targetPath || '');
     };
 
-    // intercept link clinks and run through router when appropriate
+    // Intercept link clinks and run through router when appropriate
     if (router.config.interceptLinks) {
       document.body.addEventListener('click', (evt) => {
-        // only process clicks on elements with hrefs set for the current host
+        // Only process clicks on elements with hrefs set for the current host
         const $parentLink = evt.target.closest('a');
         const parseLink = document.createElement('a');
         let href;
@@ -147,8 +141,8 @@ export default class {
           evt.preventDefault();
         }
         if (currentHost && !hashChange) {
-          // try to match the route,
-          // prevent link click default behavior (navigate away) in the case of a match
+          // Tries to match the route,
+          // and prevents link click default behavior (navigate away) in the case of a match.
           router.match(evt.target.pathname, () => {
             evt.preventDefault();
             window.history.pushState({}, '' /* TODO: consistent title for history */, evt.target.pathname);
