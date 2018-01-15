@@ -7,5 +7,6 @@ deploy:
   local-dir: /docs
   github-token: $GITHUB_TOKEN
   project-name: Air Traffic Control
+  verbose: true
   on:
     branch: gh-pages
