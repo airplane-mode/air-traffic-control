@@ -1,3 +1,11 @@
 language: node_js
 node_js: 8
 before_script: npm run rebuild
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: /docs
+  github-token: $GITHUB_TOKEN
+  project-name: Air Traffic Control
+  on:
+    branch: gh-pages
