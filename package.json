@@ -13,7 +13,7 @@
     "prepublish": "npm run build",
     "clean": "rm -rf build",
     "docs": "docblox2md docs/*.md",
-    "release": "npm run rebuild && npm run compress"
+    "release": "npm run rebuild && npm run compress && npm docs"
   },
   "keywords": [
     "redux",
