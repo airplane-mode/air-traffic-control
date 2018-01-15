@@ -13,7 +13,8 @@
     "prepublish": "npm run build",
     "clean": "rm -rf build",
     "docs": "docblox2md docs/*.md && npm run site",
-    "site": "cd docs && bundle exec jekyll build",
+    "site-dependencies": "bundle install && cd docs && bundle install",
+    "site": "npm run site-dependencies && cd docs && bundle exec jekyll build",
     "release": "npm run rebuild && npm run compress && npm run docs"
   },
   "keywords": [
