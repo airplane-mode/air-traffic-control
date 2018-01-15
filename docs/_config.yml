@@ -5,7 +5,7 @@ description: >
   Jekyll Template for Project Websites
   providing documentation and blog post pages.
 
-baseurl: "" # the subpath of your site
+baseurl: "/air-traffic-control" # the subpath of your site
 url: https://airplane-mode.github.io/air-traffic-control # the base hostname & protocol for your site
 git_address: https://github.com/airplane-mode/air-traffic-control
 git_edit_address: https://github.com/airplane-mode/air-traffic-control/blob/gh-pages
