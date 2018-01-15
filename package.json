@@ -12,7 +12,7 @@
     "compress": "tar -cvzf build/air-traffic-control.min.js.tar.gz build/air-traffic-control.min.js",
     "prepublish": "npm run build",
     "clean": "rm -rf build",
-    "docs": "docblox2md docs/*.md && npm run site",
+    "docs": "docblox2md docs/_docs/*.md && npm run site",
     "site-dependencies": "bundle install && cd docs && bundle install",
     "site": "npm run site-dependencies && cd docs && bundle exec jekyll build",
     "release": "npm run rebuild && npm run compress && npm run docs"
