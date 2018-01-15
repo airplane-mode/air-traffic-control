@@ -4,7 +4,7 @@ before_script: npm run rebuild
 deploy:
   provider: pages
   skip-cleanup: true
-  local-dir: /docs
+  local-dir: docs
   github-token: $GITHUB_TOKEN
   project-name: Air Traffic Control
   verbose: true
