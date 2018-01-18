@@ -1,7 +1,7 @@
 {
   "name": "air-traffic-control",
   "version": "0.1.0",
-  "description": "Dead simple redux routing, the way it should work.",
+  "description": "Dead simple redux routing",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
@@ -19,7 +19,8 @@
   },
   "keywords": [
     "redux",
-    "router"
+    "router",
+    "react"
   ],
   "author": "Airplane Mode Team",
   "license": "MIT",
