@@ -34,6 +34,10 @@ body {
 
 .navbar-brand{
   color: #6256d9 !important;
+  font-size: 20px;
+  font-family: "Syncopate";
+  letter-spacing: 2px;
+  text-transform: uppercase;
   img{
     margin: -$navbar-padding-vertical 0;
     height: $navbar-height;
