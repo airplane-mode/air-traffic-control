@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/github/license/airplane-mode/air-traffic-control.svg)](https://github.com/airplane-mode/air-traffic-control/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/airplane-mode/air-traffic-control.svg?branch=master)](https://travis-ci.org/airplane-mode/air-traffic-control)
+[![npm](https://img.shields.io/npm/v/air-traffic-control.svg)]()
 
 Dead simple redux routing, the way it should work. Originally created by [@airshanemode](https://www.github.com/airshanemode) and [@jfyles](https://www.github.com/jfyles) with help from the [Crossroads](https://github.com/millermedeiros/crossroads.js) routing library for use in [Airplane Mode](http://flyairplanemode.com).
 
