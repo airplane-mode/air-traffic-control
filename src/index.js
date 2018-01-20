@@ -22,7 +22,7 @@ if(typeof(Element) !== "undefined") {
   }
 }
 
-export default class {
+export class Router {
   /**
    * Creates a new router, given a reference to the redux store for action dispatch
    *

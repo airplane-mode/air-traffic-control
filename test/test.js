@@ -1,4 +1,4 @@
-const Router = require("../build/air-traffic-control.js").default;
+const Router = require("../build/air-traffic-control.js").Router;
 const redux = require("redux");
 const configureStore = require("redux-mock-store").default;
 

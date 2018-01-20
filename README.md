@@ -34,7 +34,7 @@ $ npm install --save air-traffic-control
 ## Usage
 
 ```javascript
-const Router = require('air-traffic-control');
+const Router = require('air-traffic-control').Router;
 
 // import your action creators
 const ACTION_CREATORS = require('./actions').ACTION_CREATORS;

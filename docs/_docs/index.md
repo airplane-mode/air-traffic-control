@@ -20,7 +20,7 @@ Or download the standalone <a href="#">Development</a>, <a href="#">Minified</a>
 
 ## Basic Usage
 ```
-import Router from "air-traffic-control";
+import { Router } from "air-traffic-control";
 
 // import your action creators
 const ACTION_CREATORS = require('./actions').ACTION_CREATORS;
