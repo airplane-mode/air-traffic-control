@@ -1,5 +1,7 @@
 language: node_js
 node_js: 8
+notifications:
+  slack: airplane-mode:TKwbdTmN4XCcMRySy6ghJymU
 before_script: npm run release
 deploy:
   provider: pages
