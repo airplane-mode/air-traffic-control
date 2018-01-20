@@ -1,17 +1,19 @@
-const crossroads = require('crossroads');
+const crossroads = require("crossroads");
 
 const DEFAULT_CONFIG = {
   interceptLinks: false, // By default, don't interfere with clicks on links on the page
 };
 
 // Shim for Element.closest()
-if(typeof(Element) !== "undefined") {
+if (typeof (Element) !== "undefined") {
   if (!Element.prototype.matches) {
-    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+    Element.prototype.matches = (
+      Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector
+    );
   }
   if (!Element.prototype.closest) {
-    Element.prototype.closest = function(s) {
-      var el = this;
+    Element.prototype.closest = function closest(s) {
+      let el = this;
       if (!document.documentElement.contains(el)) return null;
       do {
         if (el.matches(s)) return el;
@@ -28,7 +30,8 @@ export class Router {
    *
    * @constructor
    * @param {object} store - Your redux store.
-   * @param {object} config - Additional configuration parameters. Currently only supports the interceptLinks property.
+   * @param {object} config - Additional configuration parameters.
+   *                          Currently only supports the interceptLinks property.
    */
   constructor(store, config = {}) {
     // Keep bound reference to dispatch so we can dispatch actions in route handlers
@@ -44,16 +47,19 @@ export class Router {
   /**
    * Registers a new route.
    *
-   * @param {string} pathOrPaths - (Optionally an array of strings) The path of paths that will trigger the handler. A path can be of the form /foo/{bar}/{baz} to match the bar param and baz param.
-   * @param {string} handler - A handler that takes the params matched in the URL ((bar, baz) => { } for the example above), and returns a Redux action.
+   * @param {string} pathOrPaths -  (Optionally an array of strings)
+   *                                The path of paths that will trigger the handler.
+   *                                A path can be of the form /foo/{bar}/{baz} to match
+   *                                the bar param and baz param.
+   * @param {string} handler -  A handler that takes the params matched in the URL
+   *                            ((bar, baz) => { } for the example above),
+   *                            and returns a Redux action.
    */
   route(pathOrPaths, handler) {
     const router = this;
 
     const addRoute = (path) => {
       crossroads.addRoute(path, (...args) => {
-        console.log(`Route matched ${path}`);
-
         const decodedArgs = args.map(window.decodeURIComponent);
         router.dispatch(handler(...decodedArgs));
         if (router.onMatch) {
@@ -73,11 +79,9 @@ export class Router {
    * Searches for a matching path, and if it finds one, runs the associated handlers.
    *
    * @param {string} path - The path to which to navigate.
-   * @param {object} handler - (Optional) An additional handler to run after the standard handler does its thing.
+   * @param {object} handler - (Optional) An additional handler to run after the standard handler.
    */
   navigate(path, handler = () => {}) {
-    console.log(`Checking for route matches for ${path}`);
-
     const oldOnMatch = this.onMatch;
     this.onMatch = handler;
     crossroads.parse(path);
@@ -85,15 +89,14 @@ export class Router {
   }
 
   /**
-   * Updates the path and, optionally, the title of the page without firing any handlers. This will be a purely aesthetic update to the location, and won't affect navigation / history.
+   * Updates the path and, optionally, the title of the page without firing any handlers.
+   * This will be a purely aesthetic update to the location, and won't affect navigation / history.
    *
    * @param {string} path - The new path.
    * @param {string} title - (Optional) The new title.
    *
-   *** Disabled eslint rule that tries to force this to be static because the router should be singleton.
    */
   prettify(path, title) { // eslint-disable-line class-methods-use-this
-    console.log(`Aesthetic path update: ${path}`);
     window.history.replaceState(
       {
         pretty: true,
@@ -121,23 +124,22 @@ export class Router {
       } else {
         targetPath = document.location.pathname;
       }
-      crossroads.parse(targetPath || '');
+      crossroads.parse(targetPath || "");
     };
 
     // Intercept link clinks and run through router when appropriate
     if (router.config.interceptLinks) {
-      document.body.addEventListener('click', (evt) => {
+      document.body.addEventListener("click", (evt) => {
         // Only process clicks on elements with hrefs set for the current host
-        const $parentLink = evt.target.closest('a');
-        const parseLink = document.createElement('a');
+        const $parentLink = evt.target.closest("a");
+        const parseLink = document.createElement("a");
         let href;
         if (!evt.target.href && $parentLink && $parentLink.length > 0) {
-          parseLink.href = $parentLink.attr('href');
+          parseLink.href = $parentLink.attr("href");
           href = parseLink.href; // eslint-disable-line prefer-destructuring
         } else {
           href = evt.target.href; // eslint-disable-line prefer-destructuring
         }
-        console.log(evt, $parentLink, href);
         const currentHost = (
           href &&
           evt.target.hostname &&
@@ -145,8 +147,8 @@ export class Router {
         );
         const hashChange = (
           href &&
-          href.split('#')[0] === window.location.href.split('#')[0] &&
-          href.indexOf('#') !== -1
+          href.split("#")[0] === window.location.href.split("#")[0] &&
+          href.indexOf("#") !== -1
         );
         if (hashChange) {
           router.prettify(href);
@@ -157,7 +159,7 @@ export class Router {
           // and prevents link click default behavior (navigate away) in the case of a match.
           router.navigate(evt.target.pathname, () => {
             evt.preventDefault();
-            window.history.pushState({}, '' /* TODO: consistent title for history */, evt.target.pathname);
+            window.history.pushState({}, "" /* TODO: consistent title for history */, evt.target.pathname);
           });
         }
       });
