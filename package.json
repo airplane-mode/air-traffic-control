@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "compile": "webpack",
+    "compile": "mkdir -p build && babel --presets es2015,stage-0 -d build/ src/ && mv build/index.js build/air-traffic-control.js",
+    "bundle": "webpack",
     "minify": "uglifyjs build/air-traffic-control.js -c -o build/air-traffic-control.min.js",
     "build": "npm run compile && npm run minify",
     "rebuild": "npm run clean && npm run build",
