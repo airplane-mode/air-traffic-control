@@ -1,8 +1,8 @@
 {
   "name": "air-traffic-control",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dead simple redux routing",
-  "main": "src/index.js",
+  "main": "build/air-traffic-control.js",
   "scripts": {
     "test": "jest",
     "compile": "mkdir -p build && babel --presets es2015,stage-0 -d build/ src/ && mv build/index.js build/air-traffic-control.js",
@@ -26,8 +26,6 @@
   "author": "Airplane Mode Team",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "babel-runtime": "^6.26.0",
     "crossroads": "^0.12.2"
   },
   "devDependencies": {
