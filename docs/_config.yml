@@ -2,8 +2,7 @@
 title: Air Traffic Control
 email: hello@flyairplanemode.com
 description: >
-  Jekyll Template for Project Websites
-  providing documentation and blog post pages.
+  Air Traffic Control is a router for Redux that keeps your routes and actions in sync.
 
 baseurl: "/air-traffic-control" # the subpath of your site
 url: https://airplane-mode.github.io/air-traffic-control # the base hostname & protocol for your site
