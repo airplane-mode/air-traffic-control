@@ -6,7 +6,10 @@ layout: default
     <div class="container">
         <h1>Dead Simple Redux Routing</h1>
         <p>
-          Air Traffic Control is the Redux router you've been waiting for. It lets you keep all of your routes in one place and map them directly to Redux actions so you can keep routing logic from getting scattered across your views.
+          Air Traffic Control is the Redux router you've been waiting for. It lets you keep all of your routes in one place and map them directly to Redux actions so you can keep routing logic from getting scattered across your views. 
+        </p>
+        <p>
+          With Air Traffic Control, route changes fire Redux actions, which means you can wait to load data until a user actually needs it.
         </p>
         <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | prepend: site.baseurl }}" role="button">Learn more</a></p>
     </div>
@@ -14,22 +17,6 @@ layout: default
 
 
 <div class="container">
-
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="header-light regular-pad">Why another React/Redux router?</h2>
-            <blockquote>
-                <p>
-                  Route changes are actions, just like mouse clicks. They should be handled the same way, and they should certainly be kept out of your views. We believe that all of the existing routers for React/Redux treat route changes wrong, and Air Traffic Control aims to fix that.
-                </p>
-            </blockquote>
-        </div>
-        <div class="col-md-6 text-center">
-            <img src="http://flyairplanemode.com/static/media/50-w.0e4ebc53.svg" alt="" class="img-responsive am-logo">
-        </div>
-    </div>
-
-    <hr>
 
     <div class="row">
         <div class="col-sm-4">
@@ -40,23 +27,34 @@ layout: default
             </p>
         </div>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+            <h1 class="text-center"><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle-o" aria-hidden="true"></i></h1>
             <h3 class="text-center">Staunchly separates concerns</h3>
             <p>
               The biggest drawback to most React applications is that they eschew separation of concerns by co-locating layout, styling, and routing in their views. We believe this maximizes lock-in and minimizes ability to scale. With Air Traffic Control, you can put your routes wherever you want, and they don't need to match up 1:1 with your views.
             </p>
         </div>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-code-fork" aria-hidden="true"></i></h1>
+            <h1 class="text-center"><i class="fa fa-paper-plane" aria-hidden="true"></i></h1>
             <h3 class="text-center">Elegantly action-based</h3>
             <p>
               A Redux action can change the route. A route can fire a Redux action. Air Traffic Control can even intercept all of the same-domain links in your app so they fire actions instead of just hiding and showing components.
             </p>
             <p>
-              That means you don’t need to preload all of the data in your Redux app's initial load.
+              That means you don’t need to preload all of the data in your React app's initial load.
             <p>
         </div>
     </div>
 
+    <hr>
 
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="header-light regular-pad">Why another React/Redux router?</h2>
+            <blockquote>
+                <p>
+                  Route changes are actions, just like mouse clicks. They should be handled the same way, and they should certainly be kept out of your views. We believe that all of the existing routers for React/Redux treat route changes wrong, and Air Traffic Control aims to fix that.
+                </p>
+            </blockquote>
+        </div>
+    </div>
 </div>
