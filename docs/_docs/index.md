@@ -12,7 +12,7 @@ Use npm:
 npm install air-traffic-control --save
 ```
 
-Or download the standalone <a href="#">Development</a>, <a href="#">Minified</a>, or <a href="#">Minified and compressed</a> file and include in your header:
+Or download the standalone <a target='_parent' href="#">Development</a>, <a target='_parent' href="#">Minified</a>, or <a target='_parent' href="#">Minified and compressed</a> file and include in your header:
 
 ```
 <script scr="/javascripts/air-traffic-control.js"></script>
