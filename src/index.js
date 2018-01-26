@@ -30,7 +30,7 @@ export class Router {
    *
    * @constructor
    * @param {object} store - Your redux store.
-   * @param {object} config - Additional configuration parameters.
+   * @param {object} config - (Optional) Additional configuration parameters.
    *                          Currently only supports the interceptLinks property.
    */
   constructor(store, config) {
