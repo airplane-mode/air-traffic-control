@@ -33,7 +33,12 @@ export class Router {
    * @param {object} config - Additional configuration parameters.
    *                          Currently only supports the interceptLinks property.
    */
-  constructor(store, config = {}) {
+  constructor(store, config) {
+    // Optional arguments in old-school JS since our docs generator chokes on them.
+    if (!config) {
+      config = {};
+    }
+
     // Keep bound reference to dispatch so we can dispatch actions in route handlers
     this.dispatch = store.dispatch.bind(store);
 
@@ -81,7 +86,12 @@ export class Router {
    * @param {string} path - The path to which to navigate.
    * @param {object} handler - (Optional) An additional handler to run after the standard handler.
    */
-  navigate(path, handler = () => {}) {
+  navigate(path, handler) {
+    // Optional arguments in old-school JS since our docs generator chokes on them.
+    if (!handler) {
+      handler = () => {};
+    }
+
     const oldOnMatch = this.onMatch;
     this.onMatch = handler;
     crossroads.parse(path);
