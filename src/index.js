@@ -30,10 +30,13 @@ export class Router {
    *
    * @constructor
    * @param {object} store - Your redux store.
-   * @param {object} config - Additional configuration parameters.
+   * @param {object} config - (Optional) Additional configuration parameters.
    *                          Currently only supports the interceptLinks property.
    */
-  constructor(store, config = {}) {
+  constructor(store, config) {
+    // Optional arguments in old-school JS since our docs generator chokes on them.
+    const configuration = config || {};
+
     // Keep bound reference to dispatch so we can dispatch actions in route handlers
     this.dispatch = store.dispatch.bind(store);
 
@@ -41,7 +44,7 @@ export class Router {
     this.onMatch = () => { };
 
     // Keep our config options around
-    this.config = { ...DEFAULT_CONFIG, ...config };
+    this.config = { ...DEFAULT_CONFIG, ...configuration };
   }
 
   /**
@@ -81,9 +84,12 @@ export class Router {
    * @param {string} path - The path to which to navigate.
    * @param {object} handler - (Optional) An additional handler to run after the standard handler.
    */
-  navigate(path, handler = () => {}) {
+  navigate(path, handler) {
+    // Optional arguments in old-school JS since our docs generator chokes on them.
+    const additionalHandler = handler || (() => {});
+
     const oldOnMatch = this.onMatch;
-    this.onMatch = handler;
+    this.onMatch = additionalHandler;
     crossroads.parse(path);
     this.onMatch = oldOnMatch;
   }

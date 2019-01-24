@@ -6,9 +6,12 @@ layout: default
     <div class="container">
         <h1>Dead Simple Redux Routing</h1>
         <p>
-          Air Traffic Control is the redux router you've been waiting for. It lets you keep all of your routes in one place and map them directly to redux actions so you can keep routing logic from getting scattered across your views.
+          Air Traffic Control is the Redux router you've been waiting for. It lets you keep all of your routes in one place and map them directly to Redux actions so you can keep routing logic from getting scattered across your views. 
         </p>
-        <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | prepend: site.baseurl }}" role="button">Learn more</a></p>
+        <p>
+          With Air Traffic Control, route changes fire Redux actions, which means you can wait to load data until a user actually needs it.
+        </p>
+        <p><a target='_parent' class="btn btn-primary btn-lg" href="{{ "/docs/home/" | prepend: site.baseurl }}" role="button">Get started</a></p>
     </div>
 </div>
 
@@ -16,44 +19,50 @@ layout: default
 <div class="container">
 
     <div class="row">
-        <div class="col-md-6">
-            <h2 class="header-light regular-pad">Why another react/redux router?</h2>
-            <blockquote>
-              <p>
-                First of all, Air Traffic Control is a redux router, not a react router. It works great with react, but it also works equally well <strong>without</strong> react. We believe libraries are best when it requires minimal ecosystem buy-in, and does one thing well.
-                <br/><br/>
-                There are certainly lots of options out there for routers, but none of them something something something.
-              </p>
-            </blockquote>
+        <div class="col-sm-4">
+            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Automatically works with any Redux app</h3>
+            <p>
+              Air Traffic Control is a Redux router, not a React router. It works great with React, but it also works equally well <strong>without</strong> React. We believe libraries are best when they require minimal ecosystem buy-in, and do one thing well.
+            </p>
         </div>
-        <div class="col-md-6 text-center">
-            <img src="http://flyairplanemode.com/static/media/50-w.0e4ebc53.svg" alt="" class="img-responsive am-logo">
+        <div class="col-sm-4">
+            <h1 class="text-center"><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle-o" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Staunchly separates concerns</h3>
+            <p>
+              The biggest drawback to most React applications is that they eschew separation of concerns by co-locating layout, styling, and routing in their views. We believe this maximizes lock-in and minimizes ability to scale. With Air Traffic Control, you can put your routes wherever you want, and they don't need to match up 1:1 with your views.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <h1 class="text-center"><i class="fa fa-paper-plane" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Elegantly action-based</h3>
+            <p>
+              A Redux action can change the route. A route can fire a Redux action. Air Traffic Control can even intercept all of the same-domain links in your app so they fire actions instead of just hiding and showing components.
+            </p>
+            <p>
+              That means you don’t need to preload all of the data in your React app's initial load.
+            <p>
         </div>
     </div>
 
     <hr>
 
     <div class="row">
-        <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Easy to integrate</h3>
-            <p>Get started by cloning source into GitHub account of your project. Thanks to <a href="https://pages.github.com">GitHub Pages</a>,
-              it will be automatically compiled and published under your project's subdomain on `github.io`.
-            </p>
+        <div class="col-md-6">
+            <h2 class="header-light regular-pad">Why another React/Redux router?</h2>
+            <blockquote>
+                <p>
+                  Route changes are actions, just like mouse clicks. They should be handled the same way, and they should certainly be kept out of your views. We believe that all of the existing routers for React/Redux complicate the mapping of routes to actions, and Air Traffic Control aims to fix that.
+                </p>
+            </blockquote>
         </div>
-        <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Modular Styling and Templating</h3>
-            <p>This template uses <a href="https://github.com/twbs/bootstrap-sass">bootstrap-sass</a> along with <a href="https://bootswatch.com/">Bootwatch themes</a>.
-            You can change the theme or write your custom by overwriting bootstrap sass variables for a different color set, font options, etc.</p>
-        </div>
-        <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-code-fork" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Git-based source control</h3>
-            <p>Leverage from Git version control system by
-              maintaining your documentation along with the source code; publish the page when you merge to the master branch.</p>
+        <div class="col-md-6">
+            <h2 class="header-light regular-pad">Why open source?</h2>
+            <blockquote>
+                <p>
+                  Air Traffic Control was originally created by <a target='_parent' href="https://github.com/airshanemode">@airshanemode</a> and <a target='_parent' href="https://github.com/jfyles">@jfyles</a> with help from the <a target='_parent' href="https://github.com/millermedeiros/crossroads.js">Crossroads</a> routing library for use in <a target='_parent' href="http://www.flyairplanemode.com">Airplane Mode</a>. We believe that the open source community plays a vital role in quickly building scalable software, and we believe that together we can build the best router in the world.
+                </p>
+            </blockquote>
         </div>
     </div>
-
-
 </div>
