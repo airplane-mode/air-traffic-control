@@ -7,7 +7,7 @@ redirect_from: /docs/api.html
 ## API
 
 <!-- BEGIN DOC-COMMENT H3 src/index.js -->
-### `constructor(store, config =`
+### `constructor(store, config)`
 
 Creates a new router, given a reference to the redux store for action dispatch 
 
@@ -16,7 +16,7 @@ Creates a new router, given a reference to the redux store for action dispatch
 **Parameters:**
 
 * `store` — object — Your redux store.
-* `config` — object — Additional configuration parameters.
+* `config` — object — (Optional) Additional configuration parameters.
 
 ### `route(pathOrPaths, handler)`
 
@@ -33,7 +33,7 @@ Registers a new route.
 * `pathOrPaths` — string — (Optionally an array of strings)
 * `handler` — string — A handler that takes the params matched in the URL
 
-### `navigate(path, handler = () =>`
+### `navigate(path, handler)`
 
 Searches for a matching path, and if it finds one, runs the associated handlers. 
 
