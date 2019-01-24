@@ -96,15 +96,8 @@ export class Router {
    * @param {string} title - (Optional) The new title.
    *
    */
-  prettify(path, title) { // eslint-disable-line class-methods-use-this
-    window.history.replaceState(
-      {
-        pretty: true,
-        orginalPath: window.location.pathname,
-      },
-      title,
-      path,
-    );
+  prettify(path, title, state = {}) { // eslint-disable-line class-methods-use-this
+    window.history.pushState(state, title, path);
     if (title) {
       document.title = title;
     }

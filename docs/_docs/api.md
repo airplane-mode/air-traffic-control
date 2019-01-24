@@ -43,7 +43,7 @@ Searches for a matching path, and if it finds one, runs the associated handlers.
 * `path` — string — The path to which to navigate.
 * `handler` — object — (Optional) An additional handler to run after the standard handler.
 
-### `prettify(path, title)`
+### `prettify(path, title, state =`
 
 Updates the path and, optionally, the title of the page without firing any handlers. This will be a purely aesthetic update to the location, and won't affect navigation / history. 
 
